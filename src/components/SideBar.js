@@ -6,6 +6,7 @@ import LastMovieInDb from './LastMovieInDb';
 import ContentRowMovies from './ContentRowMovies';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import Chart from './Chart';
 
 function SideBar(){
     return(
@@ -27,7 +28,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Instrumentos</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -40,7 +41,7 @@ function SideBar(){
                 <li className="nav-item">
                 <Link className="nav-link" to="/GenresInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Categorías</span>
                     </Link>
                 </li>
 
@@ -48,14 +49,14 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastMovieInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Último Producto</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <Link className="nav-link" to="/Chart">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Listado de Productos</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -89,8 +90,8 @@ function SideBar(){
                 <Route path="/LastMovieInDb">
                     <LastMovieInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                    <ContentRowMovies />
+                <Route path="/chart">
+                    <Chart />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
