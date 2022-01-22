@@ -1,66 +1,54 @@
 import React from "react";
 
+import {useState, useEffect} from "react"
+
 function GenresInDb() {
+
+  const [Category, setCategory] = useState([])
+  const [ProductCat, setProductCat] = useState([])
+
+    useEffect(()=>{
+            fetch("/api/category")
+                .then(response => response.json())
+                .then(data => {setCategory(data.data)})
+
+        }, []
+
+    )
+    useEffect(()=>{
+            fetch("/api/products")
+                .then(response => response.json())
+                .then(data => {setProductCat(data.data)})
+
+        }, []
+
+    )
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Categorías
+                Categorías
           </h5>
         </div>
         <div className="card-body">
           <div className="row">
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Acción</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Animación</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Aventura</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Ciencia Ficción</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Comedia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Documental</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Drama</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Fantasia</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Infantiles</div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card bg-dark text-white shadow">
-                <div className="card-body">Musical</div>
-              </div>
-            </div>
+
+            {Category.map((categoria, i)=>{
+                return(
+                        <div className="col-lg-6 mb-4" key={i}>
+                            <div className="card bg-dark text-white shadow">
+                                <div className="card-body">{categoria.category_name}</div>
+                                <div>Total Productos= {(ProductCat.filter(product => product.product_category === categoria.id)).length
+
+                                }</div>
+                            </div>
+                        </div>
+                )
+            })}
+
+
           </div>
         </div>
       </div>
