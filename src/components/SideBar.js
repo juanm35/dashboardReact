@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/Logo-V3.png';
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
@@ -12,12 +12,12 @@ function SideBar(){
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul style={{backgroundColor: '#FE771F'}} className="navbar-nav d-flex sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                    <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                    <div  style={{boxSizing : "border-box"}} className="sidebar-brand-icon d-flex flex-column align-items-center">
+                        <img className="w-25" src={image} alt="Digital House"/>
                     </div>
                 </a>
 
