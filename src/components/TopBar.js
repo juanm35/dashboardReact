@@ -1,7 +1,7 @@
 import React from 'react';
-import foto from '../assets/images/Logo-V3.png';
+import foto from '../assets/images/Logo V2.png';
 
-function TopBar(){
+function TopBar(){  
     return(
         <React.Fragment>
 				{/*<!-- Topbar -->*/}
